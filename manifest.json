@@ -6,8 +6,16 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "img/captainpangyo.png",
+    "default_icon": {
+        "19" : "img/logo_yellow.png",
+        "38" : "img/logo_yellow.png"
+      },
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "16"  : "img/logo_yellow.png",
+    "48"  : "img/logo_yellow.png",
+    "128" : "img/logo_yellow.png"
   },
   "content_scripts": [
     {
