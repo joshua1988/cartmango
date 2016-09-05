@@ -7,13 +7,21 @@
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
     // console.log(obj);
-    product_image.src = request.source;
+    // product_image.src = request.source;
+
+    // console.log(request.source);
+    var product = request.source;
+    product_image.src = product.productImage;
+    product_name.innerText = product.productName;
+    product_url.href = product.productUrl;
   }
 });
 
 function onWindowLoad() {
 
   var product_image = document.querySelector('#product_image');
+  var product_name = document.querySelector('#product_name');
+  var product_url = document.querySelector('#product_url');
   var message = document.querySelector('#message');
 
   chrome.tabs.executeScript(null, {
