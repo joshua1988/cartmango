@@ -15,7 +15,24 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
     product_name.innerText = product.productName;
     product_url.href = product.productUrl;
   }
+  saveProductInfo(request.source);
+  getProductInfo();
 });
+
+function saveProductInfo(data) {
+  chrome.storage.sync.set({"productName": data.productName, "productImage": data.productImage, "productUrl": data.productUrl}, function() {
+    console.log("product saved to the storage.");
+
+    // Notify that we saved.
+    // message('Product saved');
+  });
+}
+
+function getProductInfo() {
+  chrome.storage.sync.get("productName", function(data) {
+    console.log("returned data : ",data);
+  });
+}
 
 function onWindowLoad() {
 

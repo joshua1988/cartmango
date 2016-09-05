@@ -1,6 +1,7 @@
 // @author Rob W <http://stackoverflow.com/users/938089/rob-w>
 // Demo: var serialized_html = DOMtoString(document);
 
+
 function getProductInfo(doc) {
   // var product_image_src = document.querySelector("img").src;
 
@@ -19,6 +20,5 @@ function getProductInfo(doc) {
 
 chrome.runtime.sendMessage({
     action: "getSource",
-    // source: DOMtoString(document)
     source: getProductInfo(document)
 });
